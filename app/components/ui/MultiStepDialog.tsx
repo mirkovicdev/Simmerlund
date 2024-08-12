@@ -573,6 +573,7 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
                     !isFormComplete ? 'opacity-50 cursor-not-allowed' : ''
                   }`}
                   onClick={handleSubmit(handleFormSubmit)}
+                  onTouchStart={handleSubmit(handleFormSubmit)}
                   disabled={!isFormComplete}
                 >
                   <span className="absolute inset-0 overflow-hidden rounded-full">
