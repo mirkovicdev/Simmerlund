@@ -6,11 +6,12 @@ import { connectToDatabase } from '@/lib/mongoose';
 import { IFormData, FormData } from '@/lib/models/FormData';
 
 // Connect to MongoDB
-connectToDatabase();
 
 // Handle POST requests
 export async function POST(request: NextRequest) {
   try {
+    await connectToDatabase();
+
     const formData: IFormData = await request.json();
 
     // Create a new form data document
