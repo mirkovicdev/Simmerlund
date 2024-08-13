@@ -1,5 +1,5 @@
 import { stars } from "@/public";
-import { clients } from "../constants";
+
 import Image from "next/image";
 
 const Clients = () => {
