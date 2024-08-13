@@ -1,15 +1,11 @@
 // app/api/submit-form/route.ts
 import { NextRequest, NextResponse } from 'next/server';
- // Adjust the path as needed
- // Adjust the path as needed
 import { connectToDatabase } from '@/lib/mongoose';
 import { IFormData, FormData } from '@/lib/models/FormData';
 
-// Connect to MongoDB
-
-// Handle POST requests
 export async function POST(request: NextRequest) {
   try {
+    // Connect to MongoDB (this will be a fast operation if the connection is already established)
     await connectToDatabase();
 
     const formData: IFormData = await request.json();
