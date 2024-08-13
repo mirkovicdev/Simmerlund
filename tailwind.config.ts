@@ -46,6 +46,10 @@ const config: Config = {
         secondary: "#00f6ff",
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",
+        'switch-bg-unchecked': '', // Light gray for unchecked
+        'switch-bg-checked': '#ffffff',   // Black for checked
+        'switch-thumb': '#000000',        // White for thumb
+        'switch-shadow': 'rgba(0, 0, 0, 0.4)', // Shadow color
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

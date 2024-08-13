@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link";
-import { logo } from "../../public";
+import { logo, platelogo } from "../../public";
 import { footerLinks, socialMedia } from "../constants";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -22,12 +22,10 @@ const Footer = () => (
           {/* Logo Section */}
           <div className="flex-[1] flex flex-col justify-center items-center md:items-start md:justify-start mb-10 md:mb-0">
             <Image
-              src={logo}
+              src={platelogo}
               alt="hoobank"
-              width={266}
-              height={72.14}
               priority={true}
-              className="object-contain"
+              className="object-contain w-36 h-36 md:w-44 md:h-44 lg:w-52 lg:h-52"
             />
           </div>
 

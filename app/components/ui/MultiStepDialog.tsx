@@ -377,9 +377,9 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
           )}
           {page === 3 && (
             <>
-              <div className="grid grid-cols-4 items-center gap-6">
-                <Label htmlFor="sovn" className="text-right text-white font-poppins font-medium text-[15px] mr-4">
-                  Treningsmetoder
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="sovn" className="text-right text-white font-poppins font-medium text-[15px]">
+                  Metoder
                 </Label>
                 <div className="col-span-3">
                   <Controller
@@ -411,7 +411,7 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
                 <Label htmlFor="sovn" className="text-right text-white font-poppins font-medium text-[15px]">
-                  Treningstider
+                  Tider
                 </Label>
                 <div className="col-span-3">
                   <Controller
@@ -445,7 +445,7 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
                 <Label htmlFor="sovn" className="text-right text-white font-poppins font-medium text-[15px]">
-                  Treningssted
+                  Sted
                 </Label>
                 <div className="col-span-3">
                   <Controller

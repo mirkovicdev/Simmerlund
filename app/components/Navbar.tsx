@@ -21,7 +21,7 @@ const Navbar = () => {
       whileInView="show"
       viewport={{ once: true }}
     >
-      <Image src={logo} alt="hoobank" width={180} height={60} loading="eager" />
+      <Image src={logo} alt="hoobank" width={200} height={80} loading="eager" />
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
