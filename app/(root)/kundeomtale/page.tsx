@@ -110,7 +110,7 @@ const Page = () => {
                 />
               </FormControl>
               <FormDescription className="text-dimWhite font-poppins">
-                Dette er ditt offentlige visningsnavn.
+                Dette er navnet ditt som vil vises offentlig.
               </FormDescription>
               <FormMessage className="text-red-500 font-poppins font-medium text-[15px]"/>
             </FormItem>

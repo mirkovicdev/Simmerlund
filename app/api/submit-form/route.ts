@@ -5,7 +5,7 @@ import { IFormData, FormData } from '@/lib/models/FormData';
 
 export async function POST(request: NextRequest) {
   try {
-    // Connect to MongoDB (this will be a fast operation if the connection is already established)
+
     await connectToDatabase();
 
     const formData: IFormData = await request.json();
