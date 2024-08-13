@@ -2,7 +2,6 @@ import { ToastProvider } from "@/components/ui/toast";
 import {
   Navbar,
   Hero,
-  Stats,
   Billing,
   Business,
   CardDeal,
