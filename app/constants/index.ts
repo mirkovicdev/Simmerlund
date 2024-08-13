@@ -115,22 +115,27 @@ import {
         {
           name: "Coaching",
           link: "coaching",
+          useHash: true,
         },
         {
           name: "Om meg",
           link: "ommeg",
+          useHash: true,
         },
         {
           name: "Kom i gang",
           link: "komigang",
+          useHash: true,
         },
         {
           name: "Spørsmål",
           link: "qna",
+          useHash: true,
         },
         {
           name: "Kunderesultater",
           link: "resultater",
+          useHash: true,
         },
       ],
     },
@@ -140,14 +145,17 @@ import {
         {
           name: "Til toppen",
           link: "",
+          useHash: false,
         },
         {
           name: "Kjøpsvilkår",
-          link: "https://www.hoobank.com/partners/",
+          link: "kjopsvilkaar",
+          useHash: false,
         },
         {
           name: "Personvern",
-          link: "https://www.hoobank.com/suggestions/",
+          link: "personvern",
+          useHash: false,
         },
       ],
     },

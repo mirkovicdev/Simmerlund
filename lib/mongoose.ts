@@ -23,6 +23,9 @@ export async function connectToDatabase() {
       // Add any additional connection options here
     }).then((mongoose) => {
       return mongoose;
+    }).catch(error => {
+      console.error("Error connecting to database:", error);
+      throw error;
     });
   }
 

@@ -3,6 +3,8 @@ import { Poppins } from "next/font/google";
 import "./styles/globals.css";
 import { ToastProvider } from "@/components/ui/toast"; // Import ToastProvider from the correct path
 import { Toaster } from "@/components/ui/toaster";
+import { Navbar } from "./components";
+import { platelogo } from "@/public";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -22,7 +24,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} font-serif`}>
+      <head>
+        <meta property="og:image" content="http://localhost:3000/public/platelogo.png" />
+      </head>
+      <body className={`${poppins.variable} font-poppins bg-primary`}>
+        <header className="paddingX flexCenter">
+          <nav className="boxWidth">
+            <Navbar />
+          </nav>
+        </header>
         <ToastProvider>
           {children}
           <Toaster />

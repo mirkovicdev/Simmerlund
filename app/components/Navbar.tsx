@@ -8,10 +8,27 @@ import { navLinks } from "../constants";
 import Button from "./Button";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa";
+import Link from "next/link";
 
 const Navbar = () => {
-  const [active, setActive] = useState("Home");
-  const [toggle, setToggle] = useState(false);
+  const [active, setActive] = useState<string>("Home");
+  const [toggle, setToggle] = useState<boolean>(false);
+
+  // Function to handle click and navigate to the main page or scroll to section
+  const handleClick = (navId: string) => {
+    setActive(navId);
+    // Get the current path
+    const currentPath = window.location.pathname;
+
+    // Check if we are on the main page
+    if (currentPath === "/") {
+      // If on the main page, scroll to the section
+      window.location.hash = `#${navId}`;
+    } else {
+      // If on another page, navigate to the main page and scroll to the section
+      window.location.href = `/#${navId}`;
+    }
+  };
 
   return (
     <motion.nav
@@ -21,7 +38,9 @@ const Navbar = () => {
       whileInView="show"
       viewport={{ once: true }}
     >
-      <Image src={logo} alt="hoobank" width={200} height={80} loading="eager" />
+      <Link href="/">
+        <Image src={logo} alt="hoobank" width={200} height={80} loading="eager" className="cursor-pointer"/>
+      </Link>
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
@@ -30,18 +49,21 @@ const Navbar = () => {
             className={`font-poppins font-normal cursor-pointer text-[16px] hover:text-secondary ${
               active === nav.title ? "text-secondary" : "text-white"
             } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
-            onClick={() => setActive(nav.title)}
+            onClick={() => handleClick(nav.id)}
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
+            <a>{nav.title}</a>
           </li>
         ))}
-        <a href="#about">
-          <MagicButton 
-          title="Kom i gang!"
-          icon={<FaLocationArrow />}
-          position="right"
-          otherClasses="md:ml-10"/>
-        </a>
+        <li>
+          <a href="#about">
+            <MagicButton
+              title="Kom i gang!"
+              icon={<FaLocationArrow />}
+              position="right"
+              otherClasses="md:ml-10"
+            />
+          </a>
+        </li>
       </ul>
 
       <div className="sm:hidden flex flex-1 justify-end items-center">
@@ -67,18 +89,21 @@ const Navbar = () => {
                 className={`font-poppins font-medium cursor-pointer text-[16px] ${
                   active === nav.title ? "text-secondary" : "text-white"
                 } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
-                onClick={() => setActive(nav.title)}
+                onClick={() => handleClick(nav.id)}
               >
-                <a href={`#${nav.id}`}>{nav.title}</a>
+                <a>{nav.title}</a>
               </li>
             ))}
-            <a href="#about">
-              <MagicButton 
-              title="Kontakt!"
-              icon={<FaLocationArrow />}
-              position="right"
-              otherClasses="mt-10"/>
-            </a>
+            <li>
+              <a href="#about">
+                <MagicButton
+                  title="Kontakt!"
+                  icon={<FaLocationArrow />}
+                  position="right"
+                  otherClasses="mt-10"
+                />
+              </a>
+            </li>
           </ul>
         </div>
       </div>
