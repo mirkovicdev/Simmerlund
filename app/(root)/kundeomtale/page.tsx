@@ -26,8 +26,9 @@ import {
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Rating } from "react-simple-star-rating";
+import { useToast } from "@/components/ui/use-toast"
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -66,6 +67,8 @@ const Page = () => {
     name: "anonym",
   });
 
+  const { toast } = useToast();
+
   // Set the username to "anonym" if the anonym switch is true
   useEffect(() => {
     if (isAnonym) {
@@ -82,14 +85,25 @@ const Page = () => {
       username: values.anonym ? "Anonym" : values.username,
     };
 
+    
+
     console.log("Submitting form data:", submissionData);
   
     try {
+      setIsSubmitting(true);
       console.log("Submitting form data:", submissionData);
       const response = await axios.post("/api/submit-form", submissionData);
       console.log("Response from server:", response.data.message);
+      toast({
+        title: 'kundeomtalen ble sendt!',
+        description: 'Takk for at du tok deg tid til å fylle ut skjemaet.',
+      });
     } catch (error) {
       console.error("There was an error submitting the form:", error);
+    } finally {
+      setIsSubmitting(false);
+      console.log(isSubmitting);
+      
     }
   }
   
@@ -100,6 +114,7 @@ const Page = () => {
       form.setValue("rating", rate); // Convert from 0-100 to 1-5 scale
     };
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
   return (
     <section className="bg-primary min-h-screen flex flex-col items-center p-8">
       <h2 className="font-poppins font-semibold text-white text-4xl leading-[53px] mb-6">
@@ -327,7 +342,7 @@ const Page = () => {
             type="submit"
             className="font-poppins text-black font-medium text-[15px] bg-white hover:bg-dimWhite"
           >
-            Send inn
+            {isSubmitting ? "Sender..." : "Fullfør!"}
           </Button>
         </form>
       </Form>
