@@ -32,35 +32,36 @@ const Testimonials = () => (
 
         <div className="w-full flex flex-col items-center text-center sm:mb-16 mb-6">
           <h2 className="heading2">
-          <span className="text-gradient">Resultater</span>{" "} som taler <br className="sm:block hidden" /> for seg selv
+          <span className="text-gradient">Resultater</span>{" "} som taler <br className="block sm:hidden" /> for seg selv
           </h2>
-          <div className="w-full md:mt-6 mt-4">
+          <div className="w-full md:mt-6 mt-4 justify-center items-center mx-5">
             <p className="paragraph mx-auto max-w-[450px]">
               Oppdag hvordan jeg har hjulpet andre med å nå sine mål- La deres suksesshistorier inspirere deg på din egen reise.
             </p>
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center w-full gap-6 feedback-container">
+        <div className="relative flex flex-wrap justify-center w-full gap-6 feedback-container">
           <Carousel
             opts={{
               align: "start",
             }}
-            className="w-full"
+            className="md:w-full w-full"
           >
             <CarouselContent>
-                {feedback.map((card, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
+              {feedback.map((card, index) => (
+                <CarouselItem key={index} className="md:basis-1/3 basis-full">
+                  <div className="p-4 flex justify-center items-center">
                     <FeedbackCard key={card.id} {...card} />
                   </div>
                 </CarouselItem>
-                ))}
+              ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10" />
+            <CarouselNext className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10" />
           </Carousel>
         </div>
+
 
         <div className="flex justify-center mt-6">
           <Image
