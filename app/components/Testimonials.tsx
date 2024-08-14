@@ -6,6 +6,14 @@ import { stars } from "@/public";
 import { motion } from "framer-motion";
 import { slideIn } from "../styles/animations";
 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+
 const Testimonials = () => (
   <section id="resultater" className="paddingY flexCenter flex-col relative">
     <motion.div
@@ -34,9 +42,24 @@ const Testimonials = () => (
         </div>
 
         <div className="flex flex-wrap justify-center w-full gap-6 feedback-container">
-          {feedback.map((card) => (
-            <FeedbackCard key={card.id} {...card} />
-          ))}
+          <Carousel
+            opts={{
+              align: "start",
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+                {feedback.map((card, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <FeedbackCard key={card.id} {...card} />
+                  </div>
+                </CarouselItem>
+                ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
 
         <div className="flex justify-center mt-6">

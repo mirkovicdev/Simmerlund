@@ -5,6 +5,15 @@ import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
 import { slideIn } from "../styles/animations"; // Ensure this is correctly defined
 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+
+
 const Approach = () => {
   return (
     <section id="komigang" className="relative w-full py-20 flex flex-col items-center justify-center">
@@ -42,7 +51,9 @@ const Approach = () => {
           <Card
             title="Meld interesse"
             icon={<AceternityIcon order="Steg 1" />}
-            des="Star din reise med en enkel handling - meld din interesse! Det er helt gratis og uten forpliktelser. Våre erfarne online coacher står klare til å kontakte deg raskt og sammen begynner vi å utforske hvordan vi kan hjelpe deg med å realisere drømmemålet ditt."
+            des="Star din reise med en enkel handling - meld din interesse! Det er helt gratis og uten forpliktelser. 
+            Jeg står klar til å kontakte deg raskt og sammen begynner vi å utforske hvordan vi kan 
+            hjelpe deg med å realisere drømmemålet ditt."
           >
             <CanvasRevealEffect
               animationSpeed={5.1}
@@ -52,7 +63,9 @@ const Approach = () => {
           <Card
             title="Kartlegging & skreddersydd"
             icon={<AceternityIcon order="Steg 2" />}
-            des="Reisen begynner med at du og din online coach blir bedre kjent, slik at vi får en dypere innsikt i dine mål og eventuelle hindringer som må overvinnes. Basert på dette, skreddersyr vi en plan som er skapt spesielt for deg og dine ønsker, dette gjør at du kan få glede av treningen og en sunnere livsstil."
+            des="Reisen begynner med at vi blir bedre kjent, slik at jeg får en dypere innsikt i dine mål og eventuelle hindringer 
+            som må overvinnes. Basert på dette, skreddersyr jeg en plan som er skapt spesielt for deg og dine ønsker, 
+            dette gjør at du kan få glede av treningen og en sunnere livsstil."
           >
             <CanvasRevealEffect
               animationSpeed={3}
@@ -67,7 +80,9 @@ const Approach = () => {
           <Card
             title="Du er i gang!"
             icon={<AceternityIcon order="Steg 3" />}
-            des="Du på vei til å realisere dine helse- og treningsmål. Herfra er din online coach din beste venn og støttespiller. Vi er tilgjengelig for å besvare dine spørsmål, gi teknisk veiledning og hjelpe deg med eventuelle personlige utfordringer. Din fremgang overvåkes nøye, og vi justerer planen etter dine ønsker og din fremgang."
+            des="Du på vei til å realisere dine helse- og treningsmål. Herfra er jeg din beste venn og støttespiller. 
+            Jeg er tilgjengelig for å besvare dine spørsmål, gi teknisk veiledning og hjelpe deg med eventuelle personlige utfordringer. 
+            Din fremgang overvåkes nøye, og jeg justerer planen etter dine ønsker og din fremgang."
           >
             <CanvasRevealEffect
               animationSpeed={3}

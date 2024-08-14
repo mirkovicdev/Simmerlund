@@ -70,7 +70,6 @@ import {
         "Jeg har aldri følt meg bedre både fysisk og mentalt. Herman skreddersydde et treningsprogram og kostholdsplan som passet perfekt til mine behov. Hans støtte og motivasjon har vært uvurderlig. Anbefales sterkt!",
       name: "Lisa Jensen",
       title: "Kunde i 3 år",
-      img: people01,
     },
     {
       id: "feedback-2",
@@ -78,7 +77,6 @@ import {
         "Før jeg begynte å trene med Herman, hadde jeg problemer med å holde meg motivert. Hans personlige tilnærming og kontinuerlige oppfølging har hjulpet meg med å nå mål jeg aldri trodde var mulig. Jeg føler meg sterkere og mer energisk enn noen gang!",
       name: "Ola Normann",
       title: "Kunde i 1 år",
-      img: people02,
     },
     {
       id: "feedback-3",
@@ -86,8 +84,14 @@ import {
         "Herman er ikke bare en coach, han er en mentor. Han har ikke bare hjulpet meg med trening, men også med kosthold og livsstil. Jeg har opplevd betydelige forbedringer i min helse og velvære. Jeg setter stor pris på hans kunnskap og dedikasjon.",
       name: "Anne Larsen",
       title: "Kunde i 1 år",
-      img: people03,
     },
+    {
+      id: "feedback-4",
+      content:
+          "Jeg hadde aldri trent før, og var usikker på hvor jeg skulle begynne. Herman gjorde prosessen enkel og morsom. Han har hjulpet meg med å endre livsstilen min, og jeg er så takknemlig for det. Jeg har mer energi og føler meg sunnere.",
+      name: "Marius Andersen",
+      title: "Kunde i 6 måneder",
+  },
   ];
   
   export const stats = [

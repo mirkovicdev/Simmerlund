@@ -15,7 +15,7 @@ import QNA from "./components/QNA";
 
 export default function Home() {
   return (
-      <main className=" bg-primary w-full font-poppins">
+      <main className=" bg-primary w-full font-poppins md:overflow-visible overflow-hidden">
         <section className=" bg-primary flexStart">
           <section className="boxWidth">
             <Hero />

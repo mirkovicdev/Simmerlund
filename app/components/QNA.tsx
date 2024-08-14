@@ -37,7 +37,10 @@ const QNA = () => (
         <AccordionItem value="item-3">
             <AccordionTrigger className="text-white font-semibold">Hva salgs oppfølging får jeg som kunde?</AccordionTrigger>
             <AccordionContent className="text-dimWhite font-normal">
-            Vi legger vekt på regelmessig oppfølging og støtte fra din coach for å sikre at du holder deg på rett spor og oppnår dine mål. Dette innebærer at vi vil svare på spørsmål, gi veiledning om teknikker, kostholdsveiledning, motivasjon og generell støtte underveis. Vi ønsker også å holde kontakten med deg jevnlig for å følge opp hvordan det går med treningen og kostholdet ditt samt høre om eventuelle utfordringer eller behov du måtte ha.
+            Jeg legger vekt på regelmessig oppfølging og støtte for å sikre at du holder deg på rett spor og oppnår dine mål. 
+            Dette innebærer at jeg vil svare på spørsmål, gi veiledning om teknikker, kostholdsveiledning, motivasjon og generell støtte underveis. 
+            Jeg ønsker også å holde kontakten med deg jevnlig for å følge opp hvordan det går med treningen og kostholdet ditt samt høre om 
+            eventuelle utfordringer eller behov du måtte ha.
             </AccordionContent>
         </AccordionItem>
         </Accordion>
