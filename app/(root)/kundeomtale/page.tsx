@@ -314,6 +314,7 @@ const Page = () => {
                     initialValue={form.getValues("rating") * 20}
                     className=""
                     SVGclassName="inline"
+                    fillClassName="hidden-rating-fill"
                   />
                   <FormMessage className="text-red-500 font-poppins font-medium text-[15px]" />
                 </FormItem>

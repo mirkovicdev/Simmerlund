@@ -38,6 +38,7 @@ const Navbar = () => {
       whileInView="show"
       viewport={{ once: true }}
     >
+      
       <Link href="/">
         <Image src={logo} alt="hoobank" width={200} height={80} loading="eager" className="cursor-pointer"/>
       </Link>

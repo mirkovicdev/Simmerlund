@@ -3,7 +3,7 @@ import { Poppins } from "next/font/google";
 import "./styles/globals.css";
 import { ToastProvider } from "@/components/ui/toast"; // Import ToastProvider from the correct path
 import { Toaster } from "@/components/ui/toaster";
-import { Navbar } from "./components";
+import { Footer, Navbar } from "./components";
 import { platelogo } from "@/public";
 
 const poppins = Poppins({
@@ -28,15 +28,22 @@ export default function RootLayout({
         <meta property="og:image" content="http://localhost:3000/public/platelogo.png" />
       </head>
       <body className={`${poppins.variable} font-poppins bg-primary`}>
-        <header className="paddingX flexCenter">
-          <nav className="boxWidth">
+        <header className="paddingX flexCenter relative z-10">
+          <nav className="boxWidth relative z-10">
             <Navbar />
           </nav>
         </header>
         <ToastProvider>
-          {children}
+          <main className="relative z-0">{children}</main>
           <Toaster />
         </ToastProvider>
+        <section className="bg-primary paddingX flexStart relative z-10">
+          <section className="boxWidth">
+            <footer className="">
+              <Footer />
+            </footer>
+          </section>
+        </section>
       </body>
     </html>
   );
