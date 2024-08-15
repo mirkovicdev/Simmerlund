@@ -34,7 +34,7 @@ const FeedBackCard = ({ content, name, title, rating}: feedbackCardPropTypes) =>
       className="object-contain"
       priority={true}
     />
-    <p className="font-poppins font-normal text-[18px] leading-[32px] text-white my-10">
+    <p className="font-poppins font-normal md:text-[18px] text-[16px] leading-[32px] text-white my-10">
       {content}
     </p>
     <div className="flex justify-center md:justify-start w-full">

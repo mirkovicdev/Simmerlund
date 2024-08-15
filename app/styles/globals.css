@@ -16,10 +16,25 @@
   scroll-behavior: smooth;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  overflow-x: hidden; /* This will hide horizontal overflow globally */
+  overflow-y: auto; /* This will allow vertical scrolling */
+}
+
+/* Apply styles for larger devices */
+@media (min-width: 768px) {
+  body {
+    overflow-x: hidden; /* Ensure overflow-x is hidden for larger devices as well */
+  }
+}
 
 .text-gradient {
   background: radial-gradient(

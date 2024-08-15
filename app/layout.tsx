@@ -26,8 +26,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta property="og:image" content="/public/platelogo.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={`${poppins.variable} font-poppins bg-primary`}>
+      <body className={`${poppins.variable} font-poppins bg-primary overflowsettings`}>
         <header className="paddingX flexCenter relative z-10">
           <nav className="boxWidth relative z-10">
             <Navbar />

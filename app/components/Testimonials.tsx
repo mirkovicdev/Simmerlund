@@ -41,7 +41,7 @@ const Testimonials = () => {
         transition={{ opacity: { duration: 1 }, y: { duration: 1 } }}
       >
         <div className="relative z-[1] flex flex-col items-center text-center">
-          <div className="absolute z-[0] w-[60%] h-[60%] -right-[50%] rounded-full blue__gradient bottom-40 opacity-50" />
+
 
           <div className="w-full flex flex-col items-center text-center sm:mb-16 mb-6">
             <h2 className="heading2">
@@ -64,7 +64,7 @@ const Testimonials = () => {
               <CarouselContent>
                 {feedback.map((card, index) => (
                   <CarouselItem key={index} className="md:basis-1/3 basis-full">
-                    <div className="md:p-4 p-1 flex justify-center items-center">
+                    <div className="md:p-4 p-0 flex justify-center items-center">
                       <FeedbackCard key={card.id} {...card} />
                     </div>
                   </CarouselItem>
