@@ -55,24 +55,24 @@ const Testimonials = () => {
           </div>
 
           <div className="relative flex flex-wrap justify-center w-full gap-6 feedback-container">
-            <Carousel
-              opts={{
-                align: "start",
-              }}
-              className="w-full max-w-xs lg:max-w-full"
-            >
-              <CarouselContent>
-                {feedback.map((card, index) => (
-                  <CarouselItem key={index} className="md:basis-1/3 basis-full">
-                    <div className="md:p-4 p-0 flex justify-center items-center">
-                      <FeedbackCard key={card.id} {...card} />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
+          <Carousel
+            opts={{
+              align: "start",
+            }}
+            className="w-full max-w-xs lg:max-w-full relative px-4"
+          >
+            <CarouselContent>
+              {feedback.map((card, index) => (
+                <CarouselItem key={index} className="md:basis-1/3 basis-full">
+                  <div className="md:p-4 p-1 flex justify-center items-center">
+                    <FeedbackCard key={card.id} {...card} />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10" />
+            <CarouselNext className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10" />
+          </Carousel>
 
           </div>
 
