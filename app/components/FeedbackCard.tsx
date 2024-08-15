@@ -29,8 +29,8 @@ const FeedBackCard = ({ content, name, title}: feedbackCardPropTypes) => (
     <p className="font-poppins font-normal text-[18px] leading-[32px] text-white my-10">
       {content}
     </p>
-    <div className="flex">
-      <div className="flex flex-col ml-4">
+    <div className="flex justify-center md:justify-start w-full">
+      <div className="flex flex-col md:ml-4 w-full text-center md:text-left items-center md:items-start">
         <h1 className="font-poppins font-semibold text-[20px] leading-[32px] text-white">
           {name}
         </h1>
