@@ -62,14 +62,23 @@ import {
         "A balance transfer credit card can save you a lot of money in interest charges.",
     },
   ];
+
+  export interface Feedback {
+    id: string;
+    content: string;
+    name: string;
+    title: string;
+    rating: number;
+  }
   
-  export const feedback = [
+  export const feedback: Feedback[] = [
     {
       id: "feedback-1",
       content:
-        "Jeg har aldri følt meg bedre både fysisk og mentalt. Herman skreddersydde et treningsprogram og kostholdsplan som passet perfekt til mine behov. Hans støtte og motivasjon har vært uvurderlig. Anbefales sterkt!",
-      name: "Lisa Jensen",
-      title: "Kunde i 3 år",
+        "Strålende!! Seriøs PT som vil at du skal nå målene dine og er med å pushe deg! Lager gode program som passer meg og mine mål. Får tilrettelagt både trening og matplan som ikke er kjedelig men som faktisk smaker godt. Appen er genial og gjør det enkelt for oss å holde kontakt og planlegge videre progresjon. 10/10 :)",
+      name: "Anonym",
+      title: "Kunde i 4 måneder",
+      rating: 5,
     },
     {
       id: "feedback-2",
@@ -77,6 +86,7 @@ import {
         "Før jeg begynte å trene med Herman, hadde jeg problemer med å holde meg motivert. Hans personlige tilnærming og kontinuerlige oppfølging har hjulpet meg med å nå mål jeg aldri trodde var mulig. Jeg føler meg sterkere og mer energisk enn noen gang!",
       name: "Ola Normann",
       title: "Kunde i 1 år",
+      rating: 4,
     },
     {
       id: "feedback-3",
@@ -84,6 +94,7 @@ import {
         "Herman er ikke bare en coach, han er en mentor. Han har ikke bare hjulpet meg med trening, men også med kosthold og livsstil. Jeg har opplevd betydelige forbedringer i min helse og velvære. Jeg setter stor pris på hans kunnskap og dedikasjon.",
       name: "Anne Larsen",
       title: "Kunde i 1 år",
+      rating: 4.5,
     },
     {
       id: "feedback-4",
@@ -91,6 +102,7 @@ import {
           "Jeg hadde aldri trent før, og var usikker på hvor jeg skulle begynne. Herman gjorde prosessen enkel og morsom. Han har hjulpet meg med å endre livsstilen min, og jeg er så takknemlig for det. Jeg har mer energi og føler meg sunnere.",
       name: "Marius Andersen",
       title: "Kunde i 6 måneder",
+      rating: 5,
   },
   ];
   

@@ -3,14 +3,22 @@ import { motion } from "framer-motion";
 import { zoomIn } from "../styles/animations";
 import { quotes } from "../../public";
 import Image, { StaticImageData } from "next/image";
+import { IonIcon } from '@ionic/react';
+import { star, starHalf, starOutline } from 'ionicons/icons';
 
 interface feedbackCardPropTypes {
   content: string;
   name: string;
   title: string;
+  rating: number;
 }
 
-const FeedBackCard = ({ content, name, title}: feedbackCardPropTypes) => (
+const FeedBackCard = ({ content, name, title, rating}: feedbackCardPropTypes) => {
+  const fullStars = Math.floor(rating);
+  const halfStars = rating % 1 >= 0.5 ? 1 : 0;
+  const emptyStars = 5 - fullStars - halfStars;
+  
+  return (
   <motion.div
     className="flex justify-between flex-col px-10 py-12 rounded-[20px] max-w-[370px] md:mr-10 sm:mr-5 mr-0 my-5 feedback-card"
     variants={zoomIn}
@@ -37,9 +45,21 @@ const FeedBackCard = ({ content, name, title}: feedbackCardPropTypes) => (
         <p className="font-poppins font-normal text-[16px] leading-[24px] text-dimWhite">
           {title}
         </p>
+        <div className="flex flex-row">
+          {Array.from({ length: fullStars }).map((_, i) => (
+            <IonIcon key={`full-${i}`} icon={star} className="text-yellow-500" />
+          ))}
+          {halfStars === 1 && (
+            <IonIcon key="half" icon={starHalf} className="text-yellow-500" />
+          )}
+          {Array.from({ length: emptyStars }).map((_, i) => (
+            <IonIcon key={`empty-${i}`} icon={starOutline} className="text-yellow-500" />
+          ))}
+        </div>
       </div>
     </div>
   </motion.div>
 );
+}
 
 export default FeedBackCard;

@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta property="og:image" content="http://localhost:3000/public/platelogo.png" />
+        <meta property="og:image" content="/public/platelogo.png" />
       </head>
       <body className={`${poppins.variable} font-poppins bg-primary`}>
         <header className="paddingX flexCenter relative z-10">
