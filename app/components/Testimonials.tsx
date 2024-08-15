@@ -59,7 +59,7 @@ const Testimonials = () => {
             opts={{
               align: "start",
             }}
-            className="w-full max-w-xs lg:max-w-full relative px-4"
+            className="w-full max-w-xs lg:max-w-full relative px-1"
           >
             <CarouselContent>
               {feedback.map((card, index) => (
