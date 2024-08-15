@@ -63,10 +63,14 @@ const Business = () => (
 
     <motion.div
       className="flex-1 flex justify-center items-center md:ml-10 mt-10 md:mt-0"
-      variants={fadeIn("left", "spring", 1)}
+      variants={{
+        hidden: { opacity: 0, y: -50 },
+        show: { opacity: 1, y: 0 },
+      }}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
+      transition={{ opacity: { duration: 1 }, y: { duration: 1 } }}
     >
       <Image
         src={ommeg}

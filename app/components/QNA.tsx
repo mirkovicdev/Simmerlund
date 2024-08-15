@@ -54,10 +54,14 @@ const QNA = () => (
 
     <motion.div
       className="sectionInfo"
-      variants={slideIn("right", "tween", 0.2, 1.5)}
+      variants={{
+        hidden: { opacity: 0, y: -50 },
+        show: { opacity: 1, y: 0 },
+      }}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
+      transition={{ opacity: { duration: 1 }, y: { duration: 1 } }}
     >
       <h2 className="heading2 text-center sm:text-left">
         Ofte stilte <span className="text-gradient">spørsmål</span>

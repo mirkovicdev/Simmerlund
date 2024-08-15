@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <section id="home" className="flex md:flex-row flex-col paddingY">
       <motion.div
-        className="flex-1 flexStart flex-col xl:px-0 paddingX md:text-left text-center"
+        className="flex-1 flexStart flex-col xl:px-0 paddingX md:text-left text-center md:block hidden"
         variants={slideIn("left", "tween", 0.2, 1.5)}
         initial="hidden"
         whileInView="show"
@@ -60,8 +60,19 @@ const Hero = () => {
           <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient opacity-30 right-[-10px]" />
           <div className="absolute z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40 opacity-30 right-[-20px]" />
           <div className="absolute z-[0] w-[50%] h-[50%] right-[10px] bottom-20 blue__gradient opacity-30" />
-
         </div>
+      </motion.div>
+      <motion.div
+        className="flex-1 flexCenter md:my-0 my-10 relative md:flex"
+        variants={{
+          hidden: { opacity: 0, y: -50 },
+          show: { opacity: 1, y: 0 },
+        }}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        transition={{ opacity: { duration: 1 }, y: { duration: 1 } }}
+      >
         <div className="relative md:w-[120%] w-[90%] md:h-[120%] h-[90%] md:hidden flex justify-center items-center">
           <Image
             src={forside2}
@@ -72,9 +83,8 @@ const Hero = () => {
             priority={true}
           />
         </div>
-
-
       </motion.div>
+
     </section>
   );
 };
