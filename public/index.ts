@@ -28,7 +28,7 @@ import stars from "./stars.svg";
 import ommeg from "./ommeg.jpg";
 import forside2 from "./forside2.png";
 import tiktok from "./tiktok.svg";
-import platelogo from "./platelogo.png"
+import platelogo from "./platelogo.png";
 
 export {
   airbnb,
@@ -61,5 +61,5 @@ export {
   ommeg,
   forside2,
   tiktok,
-  platelogo
+  platelogo,
 };

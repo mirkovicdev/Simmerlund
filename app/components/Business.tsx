@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { fadeIn, slideIn } from "../styles/animations";
 import { features } from "../constants";
 import { ommeg } from "@/public";
+import { Compare } from "./ui/Compare";
 
 interface featureCardProps {
   icon: string;

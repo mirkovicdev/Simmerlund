@@ -12,6 +12,7 @@ import {
 } from "./components";
 import Approach from "./components/Approach";
 import QNA from "./components/QNA";
+import Transformasjon from "./components/Transformasjon";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
           <section className="boxWidth">
             <Billing />
             <Business />
+            <Transformasjon />
             <Approach />
             <QNA />
             <Testimonials />
