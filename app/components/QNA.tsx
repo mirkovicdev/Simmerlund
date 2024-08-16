@@ -1,15 +1,12 @@
 "use client";
-import { apple, bill, google } from "../../public";
 import { slideIn } from "../styles/animations";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import VelgMeg from "./VelgMeg";
 import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-  } from "@/components/ui/accordion"
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const QNA = () => (
   <section id="qna" className="sectionReverse">
@@ -22,27 +19,41 @@ const QNA = () => (
     >
       <div>
         <Accordion type="single" collapsible className="w-full">
-        <AccordionItem value="item-1">
-            <AccordionTrigger className="text-white font-semibold">Hvorfor bør jeg velge online coaching fremfor <br /> tradisjonell personlig trener?</AccordionTrigger>
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="text-white font-semibold">
+              Hvorfor bør jeg velge online coaching fremfor <br /> tradisjonell
+              personlig trener?
+            </AccordionTrigger>
             <AccordionContent className="text-dimWhite font-normal">
-            Online coaching gir deg fleksibilitet til å trene når og hvor det passer deg, samtidig som du får tilpassede trenings- og kostholdsplaner, regelmessig oppfølging og støtte fra din dedikerte coach. Det er også mer kostnadseffektivt og praktisk sammenlignet med tradisjonell personlig trener.
+              Online coaching gir deg fleksibilitet til å trene når og hvor det
+              passer deg, samtidig som du får tilpassede trenings- og
+              kostholdsplaner, regelmessig oppfølging og støtte fra din
+              dedikerte coach. Det er også mer kostnadseffektivt og praktisk
+              sammenlignet med tradisjonell personlig trener.
             </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-2">
-            <AccordionTrigger className="text-white font-semibold">Er du utdannet coach?</AccordionTrigger>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger className="text-white font-semibold">
+              Er du utdannet coach?
+            </AccordionTrigger>
             <AccordionContent className="text-dimWhite font-normal">
-            Ja, jeg har PT utdanning.
+              Ja, jeg har PT utdanning.
             </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-3">
-            <AccordionTrigger className="text-white font-semibold">Hva salgs oppfølging får jeg som kunde?</AccordionTrigger>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger className="text-white font-semibold">
+              Hva salgs oppfølging får jeg som kunde?
+            </AccordionTrigger>
             <AccordionContent className="text-dimWhite font-normal">
-            Jeg legger vekt på regelmessig oppfølging og støtte for å sikre at du holder deg på rett spor og oppnår dine mål. 
-            Dette innebærer at jeg vil svare på spørsmål, gi veiledning om teknikker, kostholdsveiledning, motivasjon og generell støtte underveis. 
-            Jeg ønsker også å holde kontakten med deg jevnlig for å følge opp hvordan det går med treningen og kostholdet ditt samt høre om 
-            eventuelle utfordringer eller behov du måtte ha.
+              Jeg legger vekt på regelmessig oppfølging og støtte for å sikre at
+              du holder deg på rett spor og oppnår dine mål. Dette innebærer at
+              jeg vil svare på spørsmål, gi veiledning om teknikker,
+              kostholdsveiledning, motivasjon og generell støtte underveis. Jeg
+              ønsker også å holde kontakten med deg jevnlig for å følge opp
+              hvordan det går med treningen og kostholdet ditt samt høre om
+              eventuelle utfordringer eller behov du måtte ha.
             </AccordionContent>
-        </AccordionItem>
+          </AccordionItem>
         </Accordion>
       </div>
 
@@ -67,7 +78,8 @@ const QNA = () => (
         Ofte stilte <span className="text-gradient">spørsmål</span>
       </h2>
       <p className="paragraph max-w-[470px] mt-5 text-center sm:text-left">
-      Ikke nøl med å ta kontakt om du har spørsmål som ikke er besvart her. Jeg er her for å hjelpe deg!
+        Ikke nøl med å ta kontakt om du har spørsmål som ikke er besvart her.
+        Jeg er her for å hjelpe deg!
       </p>
     </motion.div>
   </section>

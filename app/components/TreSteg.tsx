@@ -1,22 +1,15 @@
-"use client"
+"use client";
 
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
-import { slideIn } from "../styles/animations"; // Ensure this is correctly defined
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
-
-
-const Approach = () => {
+const TreSteg = () => {
   return (
-    <section id="komigang" className="relative w-full py-20 flex flex-col items-center justify-center">
+    <section
+      id="komigang"
+      className="relative w-full py-20 flex flex-col items-center justify-center"
+    >
       {/* Light effect */}
       <div className="absolute z-[0] w-[60%] h-[60%] -left-[50%] rounded-full blue__gradient bottom-40 opacity-50" />
 
@@ -32,7 +25,8 @@ const Approach = () => {
         transition={{ opacity: { duration: 1 }, y: { duration: 1 } }}
       >
         <h2 className="heading2">
-          Kom i gang <br className="sm:block hidden" /> med tre <span className="text-gradient">enkle</span>{" "} steg
+          Kom i gang <br className="sm:block hidden" /> med tre{" "}
+          <span className="text-gradient">enkle</span> steg
         </h2>
       </motion.div>
 
@@ -94,13 +88,13 @@ const Approach = () => {
       </motion.div>
     </section>
   );
-}
+};
 
 const Card = ({
   title,
   icon,
   children,
-  des
+  des,
 }: {
   title: string;
   icon: React.ReactNode;
@@ -139,7 +133,10 @@ const Card = ({
         <h2 className="dark:text-white opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4 font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 text-center text-3xl">
           {title}
         </h2>
-        <h2 className="text-sm dark:text-white opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4 font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 text-center" style={{ color: '#e4ecff' }}>
+        <h2
+          className="text-sm dark:text-white opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4 font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 text-center"
+          style={{ color: "#e4ecff" }}
+        >
           {des}
         </h2>
       </div>
@@ -160,7 +157,6 @@ const AceternityIcon = ({ order }: { order: string }) => {
   );
 };
 
-
 export const Icon = ({ className, ...rest }: any) => {
   return (
     <svg
@@ -177,4 +173,4 @@ export const Icon = ({ className, ...rest }: any) => {
   );
 };
 
-export default Approach;
+export default TreSteg;

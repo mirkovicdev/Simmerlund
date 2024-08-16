@@ -1,19 +1,15 @@
 import Navbar from "./Navbar";
-import Billing from "./Billing";
-import CardDeal from "./CardDeal";
-import Business from "./Business";
-import Clients from "./Clients";
+import HvorforMeg from "./HvorforMeg";
+import OmMeg from "./OmMeg";
 import CTA from "./CTA";
 import Footer from "./Footer";
-import Testimonials from "./Testimonials";
+import Testimonials from "./Omtaler";
 import Hero from "./Hero";
 
 export {
   Navbar,
-  Billing,
-  CardDeal,
-  Business,
-  Clients,
+  HvorforMeg,
+  OmMeg,
   CTA,
   Footer,
   Testimonials,

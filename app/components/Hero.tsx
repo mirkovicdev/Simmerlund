@@ -28,11 +28,14 @@ const Hero = () => {
         </h1>
 
         <p className="paragraph max-w-[470px] mt-5 mx-auto md:mx-0 text-[10px]">
-          Fra personlig tilpassede treningsøkter til balanserte ernæringsplaner, sørger jeg for at du får den støtten og veiledningen du trenger for å nå dine mål, uansett hvor du starter. Sammen bygger vi en sterkere, sunnere og mer energisk versjon av deg selv.
+          Fra personlig tilpassede treningsøkter til balanserte ernæringsplaner,
+          sørger jeg for at du får den støtten og veiledningen du trenger for å
+          nå dine mål, uansett hvor du starter. Sammen bygger vi en sterkere,
+          sunnere og mer energisk versjon av deg selv.
         </p>
 
         <a href="#about" className="md:self-start self-center">
-          <MagicButton 
+          <MagicButton
             title="Start i dag!"
             icon={<FaLocationArrow />}
             position="right"
@@ -60,7 +63,6 @@ const Hero = () => {
           <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient opacity-30 right-[-10px]" />
           <div className="absolute z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40 opacity-30 right-[-20px]" />
           <div className="absolute z-[0] w-[50%] h-[50%] right-[10px] bottom-20 blue__gradient opacity-30" />
-
         </div>
         <div className="relative md:w-[120%] w-[90%] md:h-[120%] h-[90%] md:hidden flex justify-center items-center">
           <Image
@@ -72,8 +74,6 @@ const Hero = () => {
             priority={true}
           />
         </div>
-
-
       </motion.div>
     </section>
   );

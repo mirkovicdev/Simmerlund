@@ -3,12 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --black-gradient: linear-gradient(
-    144.39deg,
-    #ffffff -278.56%,
-    #6d6d6d -78.47%,
-    #11101d 91.61%
-  );
+  --black-gradient: linear-gradient(144.39deg,
+      #ffffff -278.56%,
+      #6d6d6d -78.47%,
+      #11101d 91.61%);
   --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
 }
 
@@ -16,7 +14,9 @@
   scroll-behavior: smooth;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -25,14 +25,17 @@ html {
 }
 
 body {
-  overflow-x: hidden; /* This will hide horizontal overflow globally */
-  overflow-y: auto; /* This will allow vertical scrolling */
+  overflow-x: hidden;
+  /* This will hide horizontal overflow globally */
+  overflow-y: auto;
+  /* This will allow vertical scrolling */
 }
 
 /* Apply styles for larger devices */
 @media (min-width: 768px) {
   body {
-    overflow-x: hidden; /* Ensure overflow-x is hidden for larger devices as well */
+    overflow-x: hidden;
+    /* Ensure overflow-x is hidden for larger devices as well */
   }
 }
 
@@ -41,56 +44,46 @@ body {
 }
 
 .text-gradient {
-  background: radial-gradient(
-    64.18% 64.18% at 71.16% 35.69%,
-    #def9fa 0.89%,
-    #bef3f5 17.23%,
-    #9dedf0 42.04%,
-    #7de7eb 55.12%,
-    #5ce1e6 71.54%,
-    #33bbcf 100%
-  );
+  background: radial-gradient(64.18% 64.18% at 71.16% 35.69%,
+      #def9fa 0.89%,
+      #bef3f5 17.23%,
+      #9dedf0 42.04%,
+      #7de7eb 55.12%,
+      #5ce1e6 71.54%,
+      #33bbcf 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .bg-blue-gradient {
-  background: linear-gradient(
-    157.81deg,
-    #def9fa -43.27%,
-    #bef3f5 -21.24%,
-    #9dedf0 12.19%,
-    #7de7eb 29.82%,
-    #5ce1e6 51.94%,
-    #33bbcf 90.29%
-  );
+  background: linear-gradient(157.81deg,
+      #def9fa -43.27%,
+      #bef3f5 -21.24%,
+      #9dedf0 12.19%,
+      #7de7eb 29.82%,
+      #5ce1e6 51.94%,
+      #33bbcf 90.29%);
 }
 
 .bg-black-gradient {
-  background: linear-gradient(
-    144.39deg,
-    #ffffff -278.56%,
-    #6d6d6d -78.47%,
-    #11101d 91.61%
-  );
+  background: linear-gradient(144.39deg,
+      #ffffff -278.56%,
+      #6d6d6d -78.47%,
+      #11101d 91.61%);
 }
 
 .bg-black-gradient-2 {
-  background: linear-gradient(
-    -168.39deg,
-    #ffffff -278.56%,
-    #6d6d6d -78.47%,
-    #11101d 91.61%
-  );
+  background: linear-gradient(-168.39deg,
+      #ffffff -278.56%,
+      #6d6d6d -78.47%,
+      #11101d 91.61%);
 }
 
 .bg-gray-gradient {
-  background: linear-gradient(
-    153.47deg,
-    rgba(255, 255, 255, 0) -341.94%,
-    #14101d 95.11%
-  );
+  background: linear-gradient(153.47deg,
+      rgba(255, 255, 255, 0) -341.94%,
+      #14101d 95.11%);
 }
 
 .bg-discount-gradient {
@@ -115,6 +108,7 @@ body {
     -webkit-transform: translateY(100px);
     transform: translateY(100px);
   }
+
   100% {
     -webkit-transform: translateY(0);
     transform: translateY(0);
@@ -126,6 +120,7 @@ body {
     -webkit-transform: translateY(100px);
     transform: translateY(100px);
   }
+
   100% {
     -webkit-transform: translateY(0);
     transform: translateY(0);
@@ -165,50 +160,65 @@ body {
 }
 
 @layer utilities {
+
   /* Styles */
   .boxWidth {
     @apply xl:max-w-[1280px] w-full;
   }
+
   .heading2 {
     @apply font-poppins font-semibold xs:text-[48px] text-[40px] text-white ss:leading-[76.8px] leading-[53px] w-full;
   }
+
   .paragraph {
     @apply font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px];
   }
+
   .flexCenter {
     @apply flex justify-center items-center;
   }
+
   .flexStart {
     @apply flex justify-center items-start;
   }
+
   .paddingX {
     @apply sm:px-16 px-6;
   }
+
   .paddingY {
     @apply sm:py-16 py-6;
   }
-  .padding{
+
+  .padding {
     @apply sm:px-16 px-6 sm:py-12 py-4;
   }
+
   .marginX {
     @apply sm:mx-16 mx-6;
   }
+
   .marginY {
     @apply sm:my-16 my-6;
   }
+
   /* Layout */
   .section {
     @apply flex md:flex-row flex-col paddingY;
   }
+
   .sectionReverse {
     @apply flex md:flex-row flex-col-reverse paddingY gap-10;
   }
+
   .sectionImgReverse {
     @apply flex-1 flex flexCenter md:mr-10 mr-0 md:mt-0 mt-10 relative;
   }
+
   .sectionImg {
     @apply flex-1 flex flexCenter md:ml-10 ml-0 md:mt-0 mt-10 relative;
   }
+
   .sectionInfo {
     @apply flex-1 flexStart flex-col;
   }
@@ -219,6 +229,7 @@ body {
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }

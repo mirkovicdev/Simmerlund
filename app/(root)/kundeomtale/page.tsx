@@ -98,11 +98,13 @@ const Page = () => {
         title: 'kundeomtalen ble sendt!',
         description: 'Takk for at du tok deg tid til å fylle ut skjemaet.',
       });
+      form.reset();
     } catch (error) {
       console.error("There was an error submitting the form:", error);
     } finally {
       setIsSubmitting(false);
       console.log(isSubmitting);
+
       
     }
   }

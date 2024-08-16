@@ -1,22 +1,21 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
-const defaultTheme = require("tailwindcss/defaultTheme");
 const svgToDataUri = require("mini-svg-data-uri");
-const colors = require("tailwindcss/colors");
+
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       boxShadow: {
-        'custom-inset': 'inset 0 0 70px 50px black',
+        "custom-inset": "inset 0 0 70px 50px black",
       },
       animation: {
         shimmer: "shimmer 2s linear infinite",
@@ -46,20 +45,20 @@ const config: Config = {
         secondary: "#00f6ff",
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",
-        'switch-bg-unchecked': '', // Light gray for unchecked
-        'switch-bg-checked': '#ffffff',   // Black for checked
-        'switch-thumb': '#000000',        // White for thumb
-        'switch-shadow': 'rgba(0, 0, 0, 0.4)', // Shadow color
+        "switch-bg-unchecked": "", // Light gray for unchecked
+        "switch-bg-checked": "#ffffff", // Black for checked
+        "switch-thumb": "#000000", // White for thumb
+        "switch-shadow": "rgba(0, 0, 0, 0.4)", // Shadow color
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
       transitionProperty: {
-        opacity: 'opacity',
+        opacity: "opacity",
       },
       transitionDuration: {
-        1000: '1000ms',
-        2000: '2000ms',
+        1000: "1000ms",
+        2000: "2000ms",
       },
     },
     screens: {
@@ -96,17 +95,17 @@ const config: Config = {
       );
     },
   ],
-}
+};
 
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
- 
+
   addBase({
     ":root": newVars,
   });
 }
 
-export default config
+export default config;

@@ -1,14 +1,13 @@
-"use client"
-import React, { useEffect, useState } from 'react';
+"use client";
+
+import React, { useState } from "react";
 import {
-  Dialog,
   DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -18,11 +17,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -37,7 +34,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "@/components/ui/use-toast";
 
 const items = [
   {
@@ -86,54 +83,62 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
   const [showError, setShowError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { toast } = useToast(); // Use addToast directly
+  const { toast } = useToast();
 
   const form = useForm<FormData>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       items: [],
-      otherInfo: '',
-      name: '',
-      phone: '',
-      email: '',
-      age: '',
-      height: '',
-      weight: '',
-      sovn: '',
-      metode: '',
-      tidspunkt: '',
-      sted: '',
+      otherInfo: "",
+      name: "",
+      phone: "",
+      email: "",
+      age: "",
+      height: "",
+      weight: "",
+      sovn: "",
+      metode: "",
+      tidspunkt: "",
+      sted: "",
     },
   });
 
-  const { control, handleSubmit, setValue, getValues, reset, formState: { errors } } = form;
+  const {
+    control,
+    handleSubmit,
+    setValue,
+    getValues,
+    reset,
+    formState: { errors },
+  } = form;
 
-  const isFormComplete = getValues('name') && getValues('phone') && getValues('email');
+  const isFormComplete =
+    getValues("name") && getValues("phone") && getValues("email");
 
   const handleFormSubmit = (data: FormData) => {
-    console.log('Form data:', data);
-    const selectedItemsWithLabels = data.items ? data.items.map(id => ({ id, label: id })) : [];
+    const selectedItemsWithLabels = data.items
+      ? data.items.map((id) => ({ id, label: id }))
+      : [];
 
     const formData = { ...data, selectedItemsWithLabels };
     setFormData(formData);
 
-    try{
+    try {
       handleFullførClick(formData);
     } catch (error: any) {
-      console.error('Error sending email:', error);
-      alert('An error occurred while sending the email.');
+      console.error("Error sending email:", error);
+      alert("An error occurred while sending the email.");
     }
   };
 
   const handleFullførClick = async (formData: FormData) => {
     if (isFormComplete) {
-      console.log('Sending form data:', formData);
+      console.log("Sending form data:", formData);
       try {
         setIsSubmitting(true);
-        console.log(isSubmitting);
-        const response = await fetch('/api/sendEmail', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+        const response = await fetch("/api/sendEmail", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
         });
 
@@ -146,39 +151,43 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
 
           // Trigger the toast notification
           toast({
-            title: 'Emailen ble sendt!',
-            description: 'Takk for at du tok deg tid til å fylle ut skjemaet. Jeg vil kontakte deg så snart som mulig.',
+            title: "Emailen ble sendt!",
+            description:
+              "Takk for at du tok deg tid til å fylle ut skjemaet. Jeg vil kontakte deg så snart som mulig.",
           });
-
         } else {
           const errorData = await response.json();
-          alert(`Failed to send email: ${errorData.message || 'Unknown error'}`);
+          alert(
+            `Failed to send email: ${errorData.message || "Unknown error"}`
+          );
         }
       } catch (error) {
-        console.error('Error sending email:', error);
-        alert('An error occurred while sending the email.');
+        console.error("Error sending email:", error);
+        alert("An error occurred while sending the email.");
       } finally {
         setIsSubmitting(false);
-        console.log(isSubmitting);
       }
     } else {
       setShowError(true);
     }
   };
-  
+
   // Function to handle checkbox change
   const handleCheckboxChange = (id: string) => {
-    const currentValues = getValues('items') ?? [];
+    const currentValues = getValues("items") ?? [];
     const checked = currentValues.includes(id);
-    
+
     if (checked) {
-      setValue('items', currentValues.filter(item => item !== id));
+      setValue(
+        "items",
+        currentValues.filter((item) => item !== id)
+      );
     } else {
-      setValue('items', [...currentValues, id]);
+      setValue("items", [...currentValues, id]);
     }
 
     // Show or hide the input field based on the "Annet" checkbox
-    if (id === 'annet -') {
+    if (id === "annet -") {
       setShowOtherInput(!checked);
     }
   };
@@ -189,31 +198,42 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
         <DialogHeader>
           {page === 1 && (
             <>
-              <DialogTitle className="text-white font-poppins font-semibold text-[30px] w-full">Hva er dine mål?</DialogTitle>
+              <DialogTitle className="text-white font-poppins font-semibold text-[30px] w-full">
+                Hva er dine mål?
+              </DialogTitle>
               <DialogDescription className="font-poppins text-dimWhite font-normal text-[15px]">
-                Jeg vil gjerne vite mer om deg og målene dine, slik at jeg kan gi deg best mulig hjelp.
+                Jeg vil gjerne vite mer om deg og målene dine, slik at jeg kan
+                gi deg best mulig hjelp.
               </DialogDescription>
             </>
           )}
           {page === 2 && (
             <>
-              <DialogTitle className="text-white font-poppins font-semibold text-[30px] w-full">Helse og livsstil</DialogTitle>
+              <DialogTitle className="text-white font-poppins font-semibold text-[30px] w-full">
+                Helse og livsstil
+              </DialogTitle>
               <DialogDescription className="font-poppins text-dimWhite font-normal text-[15px]">
-                For å kunne gi deg et tilpasset trenings- og kostholdsprogram, trenger jeg litt mer informasjon om deg.
+                For å kunne gi deg et tilpasset trenings- og kostholdsprogram,
+                trenger jeg litt mer informasjon om deg.
               </DialogDescription>
             </>
           )}
           {page === 3 && (
             <>
-              <DialogTitle className="text-white font-poppins font-semibold text-[30px] w-full">Preferanser og Tilgjengelighet</DialogTitle>
+              <DialogTitle className="text-white font-poppins font-semibold text-[30px] w-full">
+                Preferanser og Tilgjengelighet
+              </DialogTitle>
               <DialogDescription className="font-poppins text-dimWhite font-normal text-[15px]">
-                Fortell meg litt om hva du liker og hva som passer best for deg, så kan vi skreddersy programmet ditt
+                Fortell meg litt om hva du liker og hva som passer best for deg,
+                så kan vi skreddersy programmet ditt
               </DialogDescription>
             </>
           )}
           {page === 4 && (
             <>
-              <DialogTitle className="text-white font-poppins font-semibold text-[30px] w-full">Personlig informasjon</DialogTitle>
+              <DialogTitle className="text-white font-poppins font-semibold text-[30px] w-full">
+                Personlig informasjon
+              </DialogTitle>
               <DialogDescription className="font-poppins text-dimWhite font-normal text-[15px]">
                 La oss ta det siste steget og fullføre registreringen din.
               </DialogDescription>
@@ -223,7 +243,10 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
         <div className="grid gap-4 py-4">
           {page === 1 && (
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(handleFormSubmit)} className="space-y-8">
+              <form
+                onSubmit={form.handleSubmit(handleFormSubmit)}
+                className="space-y-8"
+              >
                 <FormField
                   control={form.control}
                   name="items"
@@ -238,12 +261,16 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
                             <label className="relative flex items-center cursor-pointer">
                               <input
                                 type="checkbox"
-                                checked={(field.value ?? []).includes(item.id) }
+                                checked={(field.value ?? []).includes(item.id)}
                                 onChange={() => handleCheckboxChange(item.id)}
                                 className="sr-only"
                               />
                               <div
-                                className={`w-5 h-5 border border-dimWhite rounded-md flex items-center justify-center ${(field.value ?? []).includes(item.id) ? 'bg-black' : 'bg-white'} relative`}
+                                className={`w-5 h-5 border border-dimWhite rounded-md flex items-center justify-center ${
+                                  (field.value ?? []).includes(item.id)
+                                    ? "bg-black"
+                                    : "bg-white"
+                                } relative`}
                               >
                                 {(field.value ?? []).includes(item.id) && (
                                   <svg
@@ -288,7 +315,10 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
           {page === 2 && (
             <>
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="age" className="text-right text-white font-poppins font-medium text-[15px]">
+                <Label
+                  htmlFor="age"
+                  className="text-right text-white font-poppins font-medium text-[15px]"
+                >
                   Alder
                 </Label>
                 <Controller
@@ -298,14 +328,17 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
                     <Input
                       {...field}
                       className="col-span-3 font-poppins text-white font-normal shadow-none outline-none text-[15px] bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
-                      style={{ outline: 'none', boxShadow: 'none' }}
+                      style={{ outline: "none", boxShadow: "none" }}
                     />
                   )}
                 />
               </div>
 
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="height" className="text-right text-white font-poppins font-medium text-[15px]">
+                <Label
+                  htmlFor="height"
+                  className="text-right text-white font-poppins font-medium text-[15px]"
+                >
                   Høyde
                 </Label>
                 <Controller
@@ -315,14 +348,17 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
                     <Input
                       {...field}
                       className="col-span-3 font-poppins text-white font-normal shadow-none outline-none text-[15px] bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
-                      style={{ outline: 'none', boxShadow: 'none' }}
+                      style={{ outline: "none", boxShadow: "none" }}
                     />
                   )}
                 />
               </div>
 
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="weight" className="text-right text-white font-poppins font-medium text-[15px]">
+                <Label
+                  htmlFor="weight"
+                  className="text-right text-white font-poppins font-medium text-[15px]"
+                >
                   Vekt
                 </Label>
                 <Controller
@@ -332,53 +368,83 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
                     <Input
                       {...field}
                       className="col-span-3 font-poppins text-white font-normal shadow-none outline-none text-[15px] bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
-                      style={{ outline: 'none', boxShadow: 'none' }}
+                      style={{ outline: "none", boxShadow: "none" }}
                     />
                   )}
                 />
               </div>
 
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="sovn" className="text-right text-white font-poppins font-medium text-[15px]">
+                <Label
+                  htmlFor="sovn"
+                  className="text-right text-white font-poppins font-medium text-[15px]"
+                >
                   Timer søvn om natta
                 </Label>
                 <div className="col-span-3">
-                <Controller
-                  name="sovn"
-                  control={control}
-                  render={({ field }) => (
-                    <Select
-                      value={field.value}
-                      onValueChange={(value) => field.onChange(value)}
-                    >
-                      <SelectTrigger
-                        className="w-full text-white font-poppins text-[15px] font-normal shadow-none outline-none bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
-                        style={{ outline: 'none', boxShadow: 'none' }}
+                  <Controller
+                    name="sovn"
+                    control={control}
+                    render={({ field }) => (
+                      <Select
+                        value={field.value}
+                        onValueChange={(value) => field.onChange(value)}
                       >
-                        <SelectValue placeholder="Select..." />
-                      </SelectTrigger>
-                      <SelectContent
-                        className="text-white font-poppins text-[15px] font-normal shadow-none outline-none bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
-                        style={{ outline: 'none', boxShadow: 'none' }}
-                      >
-                        <SelectItem value="0-4 timer" className="hover:bg-gray-900">0-4 timer</SelectItem>
-                        <SelectItem value="4-6 timer" className="hover:bg-gray-900">4-6 timer</SelectItem>
-                        <SelectItem value="6-8 timer" className="hover:bg-gray-900">6-8 timer</SelectItem>
-                        <SelectItem value="8-10 timer" className="hover:bg-gray-900">8-10 timer</SelectItem>
-                        <SelectItem value="10+ timer" className="hover:bg-gray-900">10+ timer</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  )}
-                />
+                        <SelectTrigger
+                          className="w-full text-white font-poppins text-[15px] font-normal shadow-none outline-none bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
+                          style={{ outline: "none", boxShadow: "none" }}
+                        >
+                          <SelectValue placeholder="Select..." />
+                        </SelectTrigger>
+                        <SelectContent
+                          className="text-white font-poppins text-[15px] font-normal shadow-none outline-none bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
+                          style={{ outline: "none", boxShadow: "none" }}
+                        >
+                          <SelectItem
+                            value="0-4 timer"
+                            className="hover:bg-gray-900"
+                          >
+                            0-4 timer
+                          </SelectItem>
+                          <SelectItem
+                            value="4-6 timer"
+                            className="hover:bg-gray-900"
+                          >
+                            4-6 timer
+                          </SelectItem>
+                          <SelectItem
+                            value="6-8 timer"
+                            className="hover:bg-gray-900"
+                          >
+                            6-8 timer
+                          </SelectItem>
+                          <SelectItem
+                            value="8-10 timer"
+                            className="hover:bg-gray-900"
+                          >
+                            8-10 timer
+                          </SelectItem>
+                          <SelectItem
+                            value="10+ timer"
+                            className="hover:bg-gray-900"
+                          >
+                            10+ timer
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
+                    )}
+                  />
                 </div>
               </div>
-
             </>
           )}
           {page === 3 && (
             <>
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="sovn" className="text-right text-white font-poppins font-medium text-[15px]">
+                <Label
+                  htmlFor="sovn"
+                  className="text-right text-white font-poppins font-medium text-[15px]"
+                >
                   Metoder
                 </Label>
                 <div className="col-span-3">
@@ -392,17 +458,32 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
                       >
                         <SelectTrigger
                           className="w-full text-white font-poppins text-[15px] font-normal shadow-none outline-none bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
-                          style={{ outline: 'none', boxShadow: 'none' }}
+                          style={{ outline: "none", boxShadow: "none" }}
                         >
                           <SelectValue placeholder="Hva foretrekker du å trene?" />
                         </SelectTrigger>
                         <SelectContent
                           className="text-white font-poppins text-[15px] font-normal shadow-none outline-none bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
-                          style={{ outline: 'none', boxShadow: 'none' }}
+                          style={{ outline: "none", boxShadow: "none" }}
                         >
-                          <SelectItem value="styrketrening" className="hover:bg-gray-900">Styrketrening</SelectItem>
-                          <SelectItem value="løping" className="hover:bg-gray-900">Løping</SelectItem>
-                          <SelectItem value="svømming" className="hover:bg-gray-900">Svømming</SelectItem>
+                          <SelectItem
+                            value="styrketrening"
+                            className="hover:bg-gray-900"
+                          >
+                            Styrketrening
+                          </SelectItem>
+                          <SelectItem
+                            value="løping"
+                            className="hover:bg-gray-900"
+                          >
+                            Løping
+                          </SelectItem>
+                          <SelectItem
+                            value="svømming"
+                            className="hover:bg-gray-900"
+                          >
+                            Svømming
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                     )}
@@ -410,7 +491,10 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
                 </div>
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="sovn" className="text-right text-white font-poppins font-medium text-[15px]">
+                <Label
+                  htmlFor="sovn"
+                  className="text-right text-white font-poppins font-medium text-[15px]"
+                >
                   Tider
                 </Label>
                 <div className="col-span-3">
@@ -424,19 +508,44 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
                       >
                         <SelectTrigger
                           className="w-full text-white font-poppins text-[15px] font-normal shadow-none outline-none bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
-                          style={{ outline: 'none', boxShadow: 'none' }}
+                          style={{ outline: "none", boxShadow: "none" }}
                         >
                           <SelectValue placeholder="Når er du mest tilgjengelig?" />
                         </SelectTrigger>
                         <SelectContent
                           className="text-white font-poppins text-[15px] font-normal shadow-none outline-none bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
-                          style={{ outline: 'none', boxShadow: 'none' }}
+                          style={{ outline: "none", boxShadow: "none" }}
                         >
-                          <SelectItem value="morgen" className="hover:bg-gray-900">Morgen</SelectItem>
-                          <SelectItem value="ettermiddag" className="hover:bg-gray-900">Ettermiddag</SelectItem>
-                          <SelectItem value="kveld" className="hover:bg-gray-900">Kveld</SelectItem>
-                          <SelectItem value="natt" className="hover:bg-gray-900">Natt</SelectItem>
-                          <SelectItem value="når som helst" className="hover:bg-gray-900">Når som helst</SelectItem>
+                          <SelectItem
+                            value="morgen"
+                            className="hover:bg-gray-900"
+                          >
+                            Morgen
+                          </SelectItem>
+                          <SelectItem
+                            value="ettermiddag"
+                            className="hover:bg-gray-900"
+                          >
+                            Ettermiddag
+                          </SelectItem>
+                          <SelectItem
+                            value="kveld"
+                            className="hover:bg-gray-900"
+                          >
+                            Kveld
+                          </SelectItem>
+                          <SelectItem
+                            value="natt"
+                            className="hover:bg-gray-900"
+                          >
+                            Natt
+                          </SelectItem>
+                          <SelectItem
+                            value="når som helst"
+                            className="hover:bg-gray-900"
+                          >
+                            Når som helst
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                     )}
@@ -444,7 +553,10 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
                 </div>
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="sovn" className="text-right text-white font-poppins font-medium text-[15px]">
+                <Label
+                  htmlFor="sovn"
+                  className="text-right text-white font-poppins font-medium text-[15px]"
+                >
                   Sted
                 </Label>
                 <div className="col-span-3">
@@ -458,17 +570,29 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
                       >
                         <SelectTrigger
                           className="w-full text-white font-poppins text-[15px] font-normal shadow-none outline-none bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
-                          style={{ outline: 'none', boxShadow: 'none' }}
+                          style={{ outline: "none", boxShadow: "none" }}
                         >
                           <SelectValue placeholder="Hvor foretrekker du å trene?" />
                         </SelectTrigger>
                         <SelectContent
                           className="text-white font-poppins text-[15px] font-normal shadow-none outline-none bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
-                          style={{ outline: 'none', boxShadow: 'none' }}
+                          style={{ outline: "none", boxShadow: "none" }}
                         >
-                          <SelectItem value="hjemme" className="hover:bg-gray-900">Hjemme</SelectItem>
-                          <SelectItem value="treningssenter" className="hover:bg-gray-900">Treningssenter</SelectItem>
-                          <SelectItem value="ute" className="hover:bg-gray-900">Ute</SelectItem>
+                          <SelectItem
+                            value="hjemme"
+                            className="hover:bg-gray-900"
+                          >
+                            Hjemme
+                          </SelectItem>
+                          <SelectItem
+                            value="treningssenter"
+                            className="hover:bg-gray-900"
+                          >
+                            Treningssenter
+                          </SelectItem>
+                          <SelectItem value="ute" className="hover:bg-gray-900">
+                            Ute
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                     )}
@@ -480,7 +604,10 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
           {page === 4 && (
             <>
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="name" className="text-right text-white font-poppins font-medium text-[15px]">
+                <Label
+                  htmlFor="name"
+                  className="text-right text-white font-poppins font-medium text-[15px]"
+                >
                   Navn
                 </Label>
                 <Controller
@@ -492,13 +619,16 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
                       value={field.value}
                       onChange={(e) => field.onChange(e.target.value)}
                       className="col-span-3 font-poppins text-white font-normal shadow-none outline-none text-[15px] bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
-                      style={{ outline: 'none', boxShadow: 'none' }}
+                      style={{ outline: "none", boxShadow: "none" }}
                     />
                   )}
                 />
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="phone" className="text-right text-white font-poppins font-medium text-[15px]">
+                <Label
+                  htmlFor="phone"
+                  className="text-right text-white font-poppins font-medium text-[15px]"
+                >
                   Telefon
                 </Label>
                 <Controller
@@ -510,13 +640,16 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
                       value={field.value}
                       onChange={(e) => field.onChange(e.target.value)}
                       className="col-span-3 font-poppins text-white font-normal shadow-none outline-none text-[15px] bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
-                      style={{ outline: 'none', boxShadow: 'none' }}
+                      style={{ outline: "none", boxShadow: "none" }}
                     />
                   )}
                 />
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="email" className="text-right text-white font-poppins font-medium text-[15px]">
+                <Label
+                  htmlFor="email"
+                  className="text-right text-white font-poppins font-medium text-[15px]"
+                >
                   Email
                 </Label>
                 <Controller
@@ -528,17 +661,18 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
                       value={field.value}
                       onChange={(e) => field.onChange(e.target.value)}
                       className="col-span-3 font-poppins text-white font-normal shadow-none outline-none text-[15px] bg-black border border-dimWhite rounded-md focus:border-3 focus:border-white"
-                      style={{ outline: 'none', boxShadow: 'none' }}
+                      style={{ outline: "none", boxShadow: "none" }}
                     />
                   )}
                 />
               </div>
               {showError && !isFormComplete && (
-                <p className="text-red-500 text-sm mt-2">Please fill out all fields.</p>
+                <p className="text-red-500 text-sm mt-2">
+                  Please fill out all fields.
+                </p>
               )}
             </>
           )}
-
         </div>
         <DialogFooter className="flex items-center justify-between w-full flex-row">
           {page !== 1 && (
@@ -568,38 +702,37 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
             {page === 4 && (
               <>
                 <DialogClose asChild>
-                <button
-                  className={`font-poppins font-medium text-[15px] bg-slate-800 no-underline group relative shadow-2xl shadow-zinc-900 rounded-full p-px leading-6 text-white inline-block ${
-                    !isFormComplete ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
-                  onClick={handleSubmit(handleFormSubmit)}
-                  onTouchStart={handleSubmit(handleFormSubmit)}
-                  disabled={!isFormComplete}
-                >
-                  <span className="absolute inset-0 overflow-hidden rounded-full">
-                    <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  </span>
-                  <div className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-2 px-6 ring-1 ring-white/10">
-                    <span>{isSubmitting ? "Sender..." : "Fullfør!"}</span>
-                    <svg
-                      fill="none"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M10.75 8.75L14.25 12L10.75 15.25"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="1.5"
-                      />
-                    </svg>
-                  </div>
-                  <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
-                </button>
-
+                  <button
+                    className={`font-poppins font-medium text-[15px] bg-slate-800 no-underline group relative shadow-2xl shadow-zinc-900 rounded-full p-px leading-6 text-white inline-block ${
+                      !isFormComplete ? "opacity-50 cursor-not-allowed" : ""
+                    }`}
+                    onClick={handleSubmit(handleFormSubmit)}
+                    onTouchStart={handleSubmit(handleFormSubmit)}
+                    disabled={!isFormComplete}
+                  >
+                    <span className="absolute inset-0 overflow-hidden rounded-full">
+                      <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    </span>
+                    <div className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-2 px-6 ring-1 ring-white/10">
+                      <span>{isSubmitting ? "Sender..." : "Fullfør!"}</span>
+                      <svg
+                        fill="none"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10.75 8.75L14.25 12L10.75 15.25"
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="1.5"
+                        />
+                      </svg>
+                    </div>
+                    <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
+                  </button>
                 </DialogClose>
               </>
             )}
@@ -607,7 +740,7 @@ const MultiStepDialog = ({ setOpen }: { setOpen: (open: boolean) => void }) => {
         </DialogFooter>
       </DialogContent>
     </div>
-  )
-}
+  );
+};
 
-export default MultiStepDialog
+export default MultiStepDialog;

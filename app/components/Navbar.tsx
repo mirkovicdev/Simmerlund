@@ -5,7 +5,6 @@ import { navVariants } from "../styles/animations";
 import Image from "next/image";
 import { close, logo, menu } from "../../public";
 import { navLinks } from "../constants";
-import Button from "./Button";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa";
 import Link from "next/link";
@@ -38,9 +37,15 @@ const Navbar = () => {
       whileInView="show"
       viewport={{ once: true }}
     >
-      
       <Link href="/">
-        <Image src={logo} alt="hoobank" width={200} height={80} loading="eager" className="cursor-pointer"/>
+        <Image
+          src={logo}
+          alt="Simmerlund Logo"
+          width={200}
+          height={80}
+          loading="eager"
+          className="cursor-pointer"
+        />
       </Link>
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">

@@ -1,5 +1,5 @@
 // lib/models/FormData.ts
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document } from "mongoose";
 
 export interface IFormData extends Document {
   username: string;
@@ -23,4 +23,6 @@ const FormDataSchema: Schema = new Schema({
   rating: { type: Number, required: true }, // Ensure the data type is Number and required
 });
 
-export const FormData = mongoose.models.FormData || mongoose.model<IFormData>('FormData', FormDataSchema);
+export const FormData =
+  mongoose.models.FormData ||
+  mongoose.model<IFormData>("FormData", FormDataSchema);

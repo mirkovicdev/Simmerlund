@@ -1,38 +1,28 @@
-import { ToastProvider } from "@/components/ui/toast";
-import {
-  Navbar,
-  Hero,
-  Billing,
-  Business,
-  CardDeal,
-  Testimonials,
-  Clients,
-  CTA,
-  Footer,
-} from "./components";
-import Approach from "./components/Approach";
+import { Hero, HvorforMeg, OmMeg, CTA } from "./components";
+import TreSteg from "./components/TreSteg";
 import QNA from "./components/QNA";
 import Transformasjon from "./components/Transformasjon";
+import Omtaler from "./components/Omtaler";
 
 export default function Home() {
   return (
-      <main className=" bg-primary w-full font-poppins">
-        <section className=" bg-primary flexStart">
-          <section className="boxWidth">
-            <Hero />
-          </section>
+    <main className=" bg-primary w-full font-poppins">
+      <section className=" bg-primary flexStart">
+        <section className="boxWidth">
+          <Hero />
         </section>
-        <section className=" bg-primary paddingX flexStart">
-          <section className="boxWidth">
-            <Billing />
-            <Business />
-            <Transformasjon />
-            <Approach />
-            <QNA />
-            <Testimonials />
-            <CTA />
-          </section>
+      </section>
+      <section className=" bg-primary paddingX flexStart">
+        <section className="boxWidth">
+          <HvorforMeg />
+          <OmMeg />
+          <Transformasjon />
+          <TreSteg />
+          <QNA />
+          <Omtaler />
+          <CTA />
         </section>
-      </main>
+      </section>
+    </main>
   );
 }

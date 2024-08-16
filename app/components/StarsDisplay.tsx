@@ -1,9 +1,11 @@
-import React from 'react';
-import { IonIcon } from '@ionic/react';
-import { star, starHalf, starOutline } from 'ionicons/icons';
+import React from "react";
+import { IonIcon } from "@ionic/react";
+import { star, starHalf, starOutline } from "ionicons/icons";
 
 // Component to display stars based on the average rating
-const StarsDisplay: React.FC<{ averageRating: number }> = ({ averageRating }) => {
+const StarsDisplay: React.FC<{ averageRating: number }> = ({
+  averageRating,
+}) => {
   let fullStars = 0;
   let halfStars = 0;
 
@@ -39,13 +41,28 @@ const StarsDisplay: React.FC<{ averageRating: number }> = ({ averageRating }) =>
   return (
     <div className="flex flex-row">
       {Array.from({ length: fullStars }).map((_, i) => (
-        <IonIcon key={`full-${i}`} icon={star} size="large" className="text-yellow-500" />
+        <IonIcon
+          key={`full-${i}`}
+          icon={star}
+          size="large"
+          className="text-yellow-500"
+        />
       ))}
       {Array.from({ length: halfStars }).map((_, i) => (
-        <IonIcon key={`half-${i}`} icon={starHalf} size="large" className="text-yellow-500" />
+        <IonIcon
+          key={`half-${i}`}
+          icon={starHalf}
+          size="large"
+          className="text-yellow-500"
+        />
       ))}
       {Array.from({ length: emptyStars }).map((_, i) => (
-        <IonIcon key={`empty-${i}`} icon={starOutline} size="large" className="text-gray-300" />
+        <IonIcon
+          key={`empty-${i}`}
+          icon={starOutline}
+          size="large"
+          className="text-gray-300"
+        />
       ))}
     </div>
   );
