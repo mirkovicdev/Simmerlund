@@ -18,11 +18,11 @@ const Transformasjon = () => (
     >
       <div className="compare-container">
         <Compare
-            firstImage="/foor.jpg"
+            firstImage="/foor1.jpeg"
             secondImage="/etter.jpg"
             firstImageClassName="object-cover object-left-top"
             secondImageClassname="object-cover object-left-top"
-            className="h-[250px] w-[250px] md:h-[500px] md:w-[500px]"
+            className="h-[400px] w-[250px] md:h-[700px] md:w-[500px]"
             slideMode="hover"
         />
       </div>
