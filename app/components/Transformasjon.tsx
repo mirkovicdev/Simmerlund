@@ -16,14 +16,17 @@ const Transformasjon = () => (
       whileInView="show"
       viewport={{ once: true }}
     >
-      <Compare
-        firstImage="/foor.jpg"
-        secondImage="/etter.jpg"
-        firstImageClassName="object-cover object-left-top"
-        secondImageClassname="object-cover object-left-top"
-        className="h-[250px] w-[250px] md:h-[500px] md:w-[500px]"
-        slideMode="hover"
-      />
+      <div className="compare-container">
+        <Compare
+            firstImage="/foor.jpg"
+            secondImage="/etter.jpg"
+            firstImageClassName="object-cover object-left-top"
+            secondImageClassname="object-cover object-left-top"
+            className="h-[250px] w-[250px] md:h-[500px] md:w-[500px]"
+            slideMode="hover"
+        />
+      </div>
+
 
       {/* gradient start */}
       <div className="absolute z-[3] -left-1/2 top-0 w-[50%] h-[50%] rounded-full white__gradient" />
