@@ -51,7 +51,7 @@ const Approach = () => {
           <Card
             title="Meld interesse"
             icon={<AceternityIcon order="Steg 1" />}
-            des="Star din reise med en enkel handling - meld din interesse! Det er helt gratis og uten forpliktelser. 
+            des="Start din reise med en enkel handling - meld din interesse! Det er helt gratis og uten forpliktelser. 
             Jeg står klar til å kontakte deg raskt og sammen begynner vi å utforske hvordan vi kan 
             hjelpe deg med å realisere drømmemålet ditt."
           >
