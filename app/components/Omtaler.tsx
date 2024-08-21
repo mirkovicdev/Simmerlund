@@ -58,7 +58,7 @@ const Omtaler = () => {
             >
               <CarouselContent>
                 {feedback.map((card, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 basis-full">
+                  <CarouselItem key={index} className="md:basis-1/3 basis-full">
                     <div className="md:p-4 p-1 flex justify-center items-center">
                       <FeedbackCard key={card.id} {...card} />
                     </div>
