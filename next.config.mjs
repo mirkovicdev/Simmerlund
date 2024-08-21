@@ -1,6 +1,13 @@
 import {withSentryConfig} from '@sentry/nextjs';
+import { custom } from 'zod';
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    output: "export",
+    images: {
+        loader: "custom",
+        loaderFile: "./ImageLoader.ts"
+    }
+};
 
 export default withSentryConfig(nextConfig, {
 // For all available options, see:

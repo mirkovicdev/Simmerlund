@@ -26,7 +26,7 @@ const QNA = () => (
             <AccordionContent className="text-dimWhite font-normal">
               Online coaching handler om å gi deg personlig tilpassede programmer og matplaner. 
               Jeg er her for å hjelpe deg med å nå målene dine og fungerer som din personlig motivator. 
-              Hver uke har vi en "check-in"-dag der du fyller ut et skjema om hvordan uken har vært. 
+              Hver uke har vi en check in dag der du fyller ut et skjema om hvordan uken har vært. 
               Basert på det gir jeg deg tilbakemelding via tekst eller videomelding, 
               hvor jeg går over alt og foreslår justeringer.
             </AccordionContent>
@@ -43,11 +43,11 @@ const QNA = () => (
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger className="text-white font-semibold">
-              Hvordan fungerer "check-in"-prosessen?
+              Hvordan fungerer check-in prosessen?
             </AccordionTrigger>
             <AccordionContent className="text-dimWhite font-normal">
-              På "check-in"-dagen fyller du ut et skjema som gir meg innsikt i hvordan uken din har vært. 
-              Annenhver "check-in" ber jeg deg også om å sende et bilde for å følge med på fremgangen din. 
+              På check in dagen fyller du ut et skjema som gir meg innsikt i hvordan uken din har vært. 
+              Annenhver check in ber jeg deg også om å sende et bilde for å følge med på fremgangen din. 
               Dette hjelper oss å se endringene i fysikken din, siden vekten kan gå opp eller ned uten at det 
               nødvendigvis er noe negativt. Jeg sender deg tilbakemelding via tekst eller videomelding der jeg 
               gjennomgår alt og gir deg tips for veien videre.
@@ -74,7 +74,7 @@ const QNA = () => (
           </AccordionItem>
           <AccordionItem value="item-6">
             <AccordionTrigger className="text-white font-semibold">
-              Hva koster online coaching-programmet ditt?
+              Hva koster online coaching programmet ditt?
             </AccordionTrigger>
             <AccordionContent className="text-dimWhite font-normal">
               Kostnaden varierer avhengig av hvilken pakke du velger og hvor lenge du vil binde deg. 
@@ -99,7 +99,7 @@ const QNA = () => (
             </AccordionTrigger>
             <AccordionContent className="text-dimWhite font-normal">
               Online coaching gir deg fleksibilitet til å trene når og hvor det
-              passer deg, samtidig som du får tilpassede trenings- og
+              passer deg, samtidig som du får tilpassede trenings og
               kostholdsplaner, regelmessig oppfølging og støtte fra din
               dedikerte coach. Det er også mer kostnadseffektivt og praktisk
               sammenlignet med tradisjonell personlig trener.
