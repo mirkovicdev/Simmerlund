@@ -1,4 +1,4 @@
-// lib/models/FormData.ts
+
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface IFormData extends Document {
@@ -20,7 +20,7 @@ const FormDataSchema: Schema = new Schema({
     years: { type: String, required: true },
   },
   kundeomtale: { type: String, required: true },
-  rating: { type: Number, required: true }, // Ensure the data type is Number and required
+  rating: { type: Number, required: true },
 });
 
 export const FormData =
