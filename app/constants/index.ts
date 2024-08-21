@@ -52,6 +52,14 @@ export const feedback: Feedback[] = [
     title: "Kunde i 3 måneder",
     rating: 5,
   },
+  {
+    id: "feedback-3",
+    content:
+      "En PT som leverer artige matplaner som funker, med treningsopplegg som motiverer. Alltid tid for en prat og gir gode råd når man står fast.",
+    name: "Christian S",
+    title: "Kunde i 4 måneder",
+    rating: 5,
+  },
 ];
 
 export const footerLinks = [
