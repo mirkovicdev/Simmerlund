@@ -39,7 +39,7 @@ export const feedback: Feedback[] = [
   {
     id: "feedback-1",
     content:
-      "Strålende!! Seriøs PT som vil at du skal nå målene dine og er med å pushe deg! Lager gode program som passer meg og mine mål. Får tilrettelagt både trening og matplan som ikke er kjedelig men som faktisk smaker godt. Appen er genial og gjør det enkelt for oss å holde kontakt og planlegge videre progresjon. 10/10 :)",
+      "Strålende! Seriøs PT som vil at du skal nå målene dine og er med å pushe deg! Lager gode program som passer meg og mine mål. Får tilrettelagt både trening og matplan som ikke er kjedelig men som faktisk smaker godt. Appen er genial og gjør det enkelt for oss å holde kontakt og planlegge videre progresjon. 10/10 :)",
     name: "Anonym",
     title: "Kunde i 4 måneder",
     rating: 5,
